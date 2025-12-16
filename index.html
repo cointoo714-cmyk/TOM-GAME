@@ -1,0 +1,66 @@
+import random
+
+class GreenFarm:
+    def __init__(self):
+        self.money = 100
+        self.food = 50
+        self.animals = 0
+
+    def plant(self):
+        if self.money >= 10:
+            self.money -= 10
+            self.food += 20
+            print("You planted some crops!")
+        else:
+            print("You don't have enough money!")
+
+    def harvest(self):
+        if self.food > 0:
+            self.money += 20
+            self.food -= 10
+            print("You harvested some crops!")
+        else:
+            print("You don't have any crops to harvest!")
+
+    def buy_animal(self):
+        if self.money >= 50:
+            self.money -= 50
+            self.animals += 1
+            print("You bought an animal!")
+        else:
+            print("You don't have enough money!")
+
+    def sell_animal(self):
+        if self.animals > 0:
+            self.money += 100
+            self.animals -= 1
+            print("You sold an animal!")
+        else:
+            print("You don't have any animals to sell!")
+
+def main():
+    farm = GreenFarm()
+    while True:
+        print("\n1. Plant crops")
+        print("2. Harvest crops")
+        print("3. Buy animal")
+        print("4. Sell animal")
+        print("5. Check status")
+        choice = input("What do you want to do? ")
+        if choice == "1":
+            farm.plant()
+        elif choice == "2":
+            farm.harvest()
+        elif choice == "3":
+            farm.buy_animal()
+        elif choice == "4":
+            farm.sell_animal()
+        elif choice == "5":
+            print(f"Money: {farm.money}")
+            print(f"Food: {farm.food}")
+            print(f"Animals: {farm.animals}")
+        else:
+            print("Invalid choice!")
+
+if __name__ == "__main__":
+    main()
